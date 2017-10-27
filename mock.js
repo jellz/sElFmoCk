@@ -29,12 +29,7 @@ client.login(config.token);
 const mock = function(string) {
     var chars = string.toUpperCase().split('');
     for (let i = 0; i < chars.length; i += 2) {
-      let rand = Math.random();
-      if (rand < 0.4) { // Slighly more chance of being upper-case
         chars[i] = chars[i].toLowerCase();
-      } else {
-        chars[i] = chars[i].toUpperCase();
-      }
     }
     return chars.join('');
 };
