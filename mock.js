@@ -46,13 +46,13 @@ client.on('ready', () => {
 
 client.on('message', (msg) => {
     // Make sure the message author is not a bot.
-    if (msg.author.bot) return;
+    // if (msg.author.bot) return;
     // Make sure the message author is the user using this bot (you).
     if (msg.author.id !== client.user.id) return;
     // Make sure they're intentionally mocking.
     if (!msg.content.toLowerCase().startsWith('mock!')) return;
     // Checks if they have provided any content.
-    if (msg.content.toLowerCase() === "mock!") return msg.edit('You need to provide some text!\n**Usage:** mock! hello buddy');
+    if (msg.content.toLowerCase().replace(" ", "") === "mock!") return msg.edit('You need to provide some text!\n**Usage:** mock! hello buddy');
     // Edit the message with the mocked version.
     const message = msg.content.split(' ').splice(1).join(' ');
     msg.edit(mock(message));
